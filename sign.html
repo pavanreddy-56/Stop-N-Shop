@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>REGISTER | STOP N SHOP</title>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo"
+      type="image/gif"
+      sizes="16x16"
+    />
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <header>
+      <div id="shopName">
+        <a href="index.html"> Stop<b> N </b>Shop </a>
+      </div>
+      <nav class="navigation">
+        <a href="index.html"><b class="color">Home</b></a>
+        <a href="products.html"><b class="color">Explore</b></a>
+        <a href="#"><b class="color">Services</b></a>
+        <a href="contact.html"><b class="color">Contact us</b> </a>
+        <button
+          class="btnLogin-popup"
+          onclick="window.location.href='sign.html'"
+        >
+          Log in
+        </button>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <span class="icon-close">
+        <ion-icon name="close"></ion-icon>
+      </span>
+
+      <div class="form-box login">
+        <h2>Login</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input id="login_identity" type="text" required />
+            <label> Email </label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input id="login_password" type="password" required />
+            <label> Password </label>
+          </div>
+          <div class="remember-forgot">
+            <label><input type="checkbox" /> Remember me</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn" id="login">Login</button>
+          <div class="login-register">
+            <p>
+              Don't have an account?
+              <a href="#" class="register-link">Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+      <div class="form-box register">
+        <h2>Registration</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input
+              type="text"
+              id="username"
+              pattern="[A-Za-z]+"
+              title="Only alphabets are allowed"
+              required
+            />
+            <label> Username </label>
+            <div
+              id="username_error"
+              class="error"
+              style="display: none; color: red"
+            >
+              Please enter a valid username (only alphabets).
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input id="email" type="email" pattern="[^\s]+" required />
+            <label> Email </label>
+          </div>
+          <div class="input-box phone">
+            <span class="icon"><ion-icon name="call"></ion-icon></span>
+            <input id="phone" type="tel" pattern="[0-9]{10}" required />
+            <label> Phone Number </label>
+          </div>
+          <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input id="password" type="password" required />
+            <label> Password (at least one upper and lower case)</label>
+          </div>
+          <div class="remember-forgot">
+            <label
+              ><input type="checkbox" id="terms_checkbox" required /> I agree to
+              terms & conditions</label
+            >
+            <div
+              id="terms_error"
+              class="error"
+              style="display: none; color: red"
+            >
+              Please agree to the terms & conditions.
+            </div>
+          </div>
+          <button type="submit" class="btn" id="register">Register</button>
+          <div class="login-register">
+            <p>
+              Already have an account? <a href="#" class="login-link">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAxinhQWpcXGAKzf_FDz1Oz78r-pnnatrU",
+        authDomain: "stop-n-shop-86133.firebaseapp.com",
+        projectId: "stop-n-shop-86133",
+        storageBucket: "stop-n-shop-86133.appspot.com",
+        messagingSenderId: "37480039878",
+        appId: "1:37480039878:web:5847e44cfef49708a41ec7",
+        measurementId: "G-X24E4YZDRY",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth();
+
+      document
+        .getElementById("register")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var email = document.getElementById("email").value;
+          var phone = document.getElementById("phone").value;
+          var password = document.getElementById("password").value;
+
+          if (phone.length !== 10) {
+            alert("Phone number must be exactly 10 digits.");
+            return;
+          }
+
+          if (!/(?=.*[a-z])(?=.*[A-Z])/.test(password)) {
+            alert(
+              "Password must contain at least one upper and one lower case character."
+            );
+            return;
+          }
+
+          if (!document.getElementById("terms_checkbox").checked) {
+            document.getElementById("terms_error").style.display = "block";
+            return;
+          } else {
+            document.getElementById("terms_error").style.display = "none";
+          }
+
+          if (!/^[A-Za-z]+$/.test(username)) {
+            document.getElementById("username_error").style.display = "block";
+            return;
+          } else {
+            document.getElementById("username_error").style.display = "none";
+          }
+
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              console.log(user);
+              alert("Registration successful!");
+              window.location.href = "login.html";
+            })
+
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              if (errorCode === "auth/email-already-in-use") {
+                console.log("Email already exists");
+                alert("Email already exists. Please use a different email.");
+              } else {
+                console.error(errorMessage);
+                alert(errorMessage);
+              }
+            });
+        });
+
+      document
+        .getElementById("login")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+
+          var identity = document.getElementById("login_identity").value;
+          var password = document.getElementById("login_password").value;
+
+          signInWithEmailAndPassword(auth, identity, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              console.log(user);
+              alert(user.email + " Login successful!");
+              window.location.href = "index.html";
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(errorMessage);
+              alert(errorMessage);
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ABOUT | STOP N SHOP</title>
+    <!-- favicon -->
+    <link
+      rel="icon"
+      href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo"
+      type="image/gif"
+      sizes="16x16"
+    />
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:antiquewhite;
+      /* background-image: url(https://e1.pxfuel.com/desktop-wallpaper/427/745/desktop-wallpaper-solid-colors-backgrounds-group-solid-yellow-thumbnail.jpg); */
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul li a.active {
+      font-weight: bold;
+    }
+
+    main {
+      padding: 10px;
+    }
+
+    .about-section {
+    
+    }
+
+    .about-section h2 {
+      color: #333;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding-top: 60px;
+      text-align: auto;
+          position: fixed;
+            width: 100%;
+    }
+
+    /* Style for video button and popup */
+    .video-container {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+      z-index: 9999;
+    }
+
+    .video-container video {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <header>
+      <div id="shopName">
+        <a href="index.html"> Stop<b> N </b>Shop </a>
+      </div>
+        <div class="logo"><a href="index.html"></a></div>
+        <div class="menu">
+          <a href="#">
+            <ion-icon name="close" class="close"></ion-icon>
+          </a>
+    
+          <ul>
+            <li><a href="index.html" class="under">HOME</a></li>
+            <li><a href="products.html" class="under">OUR PRODUCTS</a></li>
+            <li><a href="contact.html" class="under">CONTACT US</a></li>
+            <li><a href="about.html" class="under">ABOUT US</a></li>
+          </ul>
+        </div>
+        <div class="heading">
+          <ul>
+            <li><a href="index.html" class="under">HOME</a></li>
+            <li><a href="products.html" class="under">OUR PRODUCTS</a></li>
+            <li><a href="contact.html" class="under">CONTACT US</a></li>
+            <li><a href="about.html" class="under">ABOUT US</a></li>
+          </ul>
+        </div>
+        <div class="heading1">
+          <ion-icon name="menu" class="ham"></ion-icon>
+        </div>
+      </header>
+  <main>
+    <section class="about-section">
+      <h2>About Us</h2>
+      <p> <br>Welcome to Website, where shopping meets innovation. Founded in 2024, we set out to create an online marketplace that delivers a unique and enjoyable shopping experience. Our mission is to offer a wide range of high-quality products at competitive prices, while providing exceptional customer service and a seamless online shopping experience.</p>
+       <br></section>
+    <section class="about-section">
+      <h2>Our Story</h2>
+      <p><br>
+        Our journey began with a simple idea: to make online shopping more accessible, convenient, and enjoyable for everyone. We started as a small team with a big dream, working tirelessly to curate a diverse selection of products that cater to a variety of tastes and preferences. Today, we've grown into a trusted e-commerce platform that serves customers across the globe.</p>
+    <br></section>
+    <section class="about-section">
+      <h2>Our Vision</h2>
+    <p> <br>We envision a world where online shopping is not only convenient but also enriching. We aim to be more than just an online store; we want to be a community where customers feel valued and inspired. Whether you're shopping for yourself or a loved one, we want you to find exactly what you're looking for at Stop N Shop.</p>
+  </main> 
+  <!-- Video button and popup -->
+  <div class="video-container" id="videoPopup">
+    <video id="videoPlayer" width="560" height="315" controls>
+      <source src="Stop N Shop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <span class="close-btn" onclick="closeVideoPopup()">X</span>
+  </div>
+  <button class="custom-button" id="watchVideoBtn" onclick="openVideoPopup()" style="margin-left: 15px;">Watch Video</button>
+
+  <footer>
+    <div class="footer0">
+      <h1>Stop N Shop</h1>
+    </div>
+    <div class="footer1 ">
+      Connect with us at<div class="social-media">
+        <a href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </div>
+    </div>
+    <div class="footer2">
+      <div class="services">
+        <div class="heading" onclick="window.location.href='contact.html'">Services</div>
+        <div class="div" onclick="window.location.href='contact.html'">Return</div>
+        <div class="div" onclick="window.location.href='contact.html'">Cash Back</div>
+        <div class="div" onclick="window.location.href='contact.html'">Affiliate Marketing</div>
+        <div class="div" onclick="window.location.href='contact.html'">Others</div>
+      </div>
+      <div class="Company">
+        <div class="heading">Company</div>
+        <div class="div">Complaint</div>
+        <div class="div">Careers</div>
+        <div class="div">Affiliate Marketing</div>
+        <div class="div">Support</div>
+      </div>
+      <div class="Get Help">
+        <div class="heading">Get Help</div>
+        <div class="div">Help Center</div>
+        <div class="div">Privacy Policy</div>
+        <div class="div">Terms</div>
+        <div class="div" onclick="window.location.href='sign.html'">Login</div>
+        </div>
+    </div>
+    <div class="footer3">Copyright © <h4>Stop N Shop</h4> </div>
+  </footer>
+</body>
+<script>
+    // Function to open the video popup
+    function openVideoPopup() {
+        var videoPopup = document.getElementById('videoPopup');
+        videoPopup.style.display = 'flex';
+    }
+
+    // Function to close the video popup
+    function closeVideoPopup() {
+        var videoPopup = document.getElementById('videoPopup');
+        videoPopup.style.display = 'none';
+    }
+</script>
+</html>

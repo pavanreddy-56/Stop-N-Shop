@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us|Stop N Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjLGDm4J0YZ08T62Iq5LiCYPnUmioSqhYa_wALuFkvMv-gMf0yq4uKxapYATgs8yGKDco&usqp=CAU);
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        margin-right: 10px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      nav ul li a.active {
+        font-weight: bold;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .contact-form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .contact-form textarea {
+        height: 150px;
+      }
+
+      .contact-form input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="shopName">
+        <a href="index.html"> Stop<b> N </b>Shop </a>
+      </div>
+      <div class="logo"><a href="index.html"></a></div>
+      <div class="menu">
+        <a href="#">
+          <ion-icon name="close" class="close"></ion-icon>
+        </a>
+        <ul>
+          <li><a href="index.html" class="under">HOME</a></li>
+          <li><a href="products.html" class="under">OUR PRODUCTS</a></li>
+          <li><a href="#" class="under">CONTACT US</a></li>
+          <li><a href="#" class="under">ABOUT US</a></li>
+        </ul>
+      </div>
+      <div class="heading">
+        <ul>
+          <li><a href="index.html" class="under">HOME</a></li>
+          <li><a href="products.html" class="under">OUR PRODUCTS</a></li>
+          <li><a href="contact.html" class="under">CONTACT US</a></li>
+          <li><a href="about.html" class="under">ABOUT US</a></li>
+          <li><a href="sign.html" class="under">SIGN IN</a></li>
+        </ul>
+      </div>
+      <div class="heading1">
+        <ion-icon name="menu" class="ham"></ion-icon>
+      </div>
+    </header>
+    <main>
+      <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="#" method="post">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            pattern="[A-Za-z]+"
+            title="Only alphabets are allowed"
+            required
+          />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <input type="submit" value="Submit" />
+        </form>
+        <p id="submitMessage" style="display: none"></p>
+        <br />
+      </div>
+    </main>
+
+    <footer>&copy; 2024 Stop N Shop</footer>
+    <br />
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var message = document.getElementById("message").value;
+
+          // Display message
+          var submitMessage = document.getElementById("submitMessage");
+          submitMessage.style.display = "block";
+          submitMessage.textContent = "Message sent successfully!";
+
+          // Redirect to index.html after 3 seconds
+          setTimeout(function () {
+            window.location.href = "index.html";
+          }, 3000);
+        });
+    </script>
+  </body>
+</html>

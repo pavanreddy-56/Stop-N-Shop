@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart|Stop N Shop</title>
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div id="shopName"><b>SHOPPING</b> CART</div>
+        <div id="cart-items"></div>
+        <div>
+          <div id="shopName"><b>Total: </b><span id="cart-total"></span></div>
+        </div>
+        <br />
+        <button onclick="clearCart()">Clear Cart</button><br />
+        <button onclick="placeOrder()">Place Order</button><br /><br />
+        <div id="empty-cart-message" style="display: none">
+          <h2>Your cart is empty.</h2>
+          <b>Click </b> <a href="index.html">here</a> to continue shopping.
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+
+    <script>
+      function displayCart() {
+        var cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        var cartTotal = 0;
+        var cartItemsHTML = "";
+
+        cartItems.forEach(function (item) {
+          cartItemsHTML +=
+            "<div>" +
+            item.name +
+            " - Rs " +
+            item.price +
+            " <button onclick=\"removeFromCart('" +
+            item.name +
+            "')\">Remove</button></div>";
+          cartTotal += item.price;
+        });
+
+        document.getElementById("cart-items").innerHTML = cartItemsHTML;
+        document.getElementById("cart-total").innerText =
+          "Rs " + cartTotal.toFixed(2);
+
+        if (cartItems.length === 0) {
+          document.getElementById("empty-cart-message").style.display = "block";
+        } else {
+          document.getElementById("empty-cart-message").style.display = "none";
+        }
+      }
+
+      function removeFromCart(itemName) {
+        var cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart = cart.filter(function (item) {
+          return item.name !== itemName;
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCart();
+      }
+
+      function clearCart() {
+        localStorage.removeItem("cart");
+        displayCart();
+      }
+
+      function placeOrder() {
+        var cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cartItems.length === 0) {
+          alert(
+            "Your cart is empty. Please add items to your cart before placing an order."
+          );
+          window.location.href = "index.html";
+        } else {
+          window.location.href = "orderPlaced.html";
+        }
+      }
+
+      displayCart();
+    </script>
+  </body>
+</html>

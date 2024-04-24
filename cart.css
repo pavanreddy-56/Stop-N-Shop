@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("WhatsApp\ Image\ 2024-04-24\ at\ 12.09.09_0da8a3e1.jpg");
+        background-size: cover;
+        background-position: center;
+}
+#shopName {
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+#shopName a {
+    text-decoration: none;
+    color: rgb(29, 29, 29);
+    text-align: center;
+}
+
+#shopName>b {
+    font-weight: 900;
+    font: black;
+    text-align: center;
+}
+
+#cart-total {
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+section {
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+#cart-items>div {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    /* Center items vertically */
+}
+
+#cart-items>div:last-child {
+    margin-bottom: 0;
+}
+
+#cart-items>div button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: auto;
+    /* Push the button to the right */
+}
+
+#cart-items>div button:hover {
+    background-color: #c82333;
+}
+
+#cart-total {
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#empty-cart-message {
+    font-size: 20px;
+        font-family: 'Lato', sans-serif;
+        text-align: center;
+}
